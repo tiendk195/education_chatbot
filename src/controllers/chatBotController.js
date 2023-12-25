@@ -151,7 +151,7 @@ function callSendAPI(sender_psid, response) {
     }
   );
 }
-let getFacebookUserProfile = (req, res) => {
+let getFacebookUserProfile = async (req, res) => {
   // Construct the message body
   let request_body = {
     get_started: { payload: "GET_STARTED" },
@@ -159,7 +159,7 @@ let getFacebookUserProfile = (req, res) => {
   };
 
   // Send the HTTP request to the Messenger Platform
-  request(
+  await request(
     {
       uri: `https://graph.facebook.com/v18.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
       qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -174,6 +174,7 @@ let getFacebookUserProfile = (req, res) => {
       }
     }
   );
+  return res.send("Thiết lập profile thành công !");
 };
 module.exports = {
   getHomepage: getHomepage,
