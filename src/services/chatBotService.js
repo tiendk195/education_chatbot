@@ -87,7 +87,7 @@ let sendGetstartedTemplate = () => {
         template_type: "generic",
         elements: [
           {
-            title: "Xin chào bạn đến với Chat Bot UNETI !",
+            title: "Chào mừng bạn đến với Chat Bot UNETI !",
             subtitle: "Bạn đang tìm kiếm thông tin gì?",
             image_url: IMAGE_GET_STARTED,
             buttons: [
@@ -96,16 +96,16 @@ let sendGetstartedTemplate = () => {
                 title: "MENU CHÍNH",
                 payload: "MAIN_MENU",
               },
-              {
-                type: "postback",
-                title: "CÂU HỎI THƯỜNG GẶP",
-                payload: "QUESTION_INFO",
-              },
 
               {
                 type: "postback",
                 title: "HƯỚNG DẪN SỬ DỤNG",
                 payload: "GUILD_TO_USE",
+              },
+              {
+                type: "postback",
+                title: "CÂU HỎI THƯỜNG GẶP",
+                payload: "QUESTION_INFO",
               },
             ],
           },
