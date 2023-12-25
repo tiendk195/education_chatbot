@@ -271,29 +271,29 @@ let setuppersistentmenu = async (req, res) => {
               "Trường đại học đại học kinh tế kỹ thuật công nghiệp UNETI có mấy cơ sở?",
             payload: "QUEST1",
           },
-          {
-            type: "postback",
-            title:
-              "Thành tựu mà Trường đại học đại học kinh tế kỹ thuật đạt đc trong các năm qua?",
-            payload: "QUEST2",
-          },
-          {
-            type: "postback",
-            title:
-              "Trường đại học đại học kinh tế kỹ thuật CN có bao nhiêu chuyên ngành học?",
-            payload: "QUEST3",
-          },
-          {
-            type: "postback",
-            title:
-              "Tôi có thể tìm hiểu và đăng ký đơn xét duyệt học bổng ở đâu?",
-            payload: "QUEST4",
-          },
-          {
-            type: "postback",
-            title: "Khởi động lại chat bot",
-            payload: "RESET_CHATBOT",
-          },
+          // {
+          //   type: "postback",
+          //   title:
+          //     "Thành tựu mà Trường đại học đại học kinh tế kỹ thuật đạt đc trong các năm qua?",
+          //   payload: "QUEST2",
+          // },
+          // {
+          //   type: "postback",
+          //   title:
+          //     "Trường đại học đại học kinh tế kỹ thuật CN có bao nhiêu chuyên ngành học?",
+          //   payload: "QUEST3",
+          // },
+          // {
+          //   type: "postback",
+          //   title:
+          //     "Tôi có thể tìm hiểu và đăng ký đơn xét duyệt học bổng ở đâu?",
+          //   payload: "QUEST4",
+          // },
+          // {
+          //   type: "postback",
+          //   title: "Khởi động lại chat bot",
+          //   payload: "RESET_CHATBOT",
+          // },
         ],
       },
     ],

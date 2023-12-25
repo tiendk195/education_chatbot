@@ -96,16 +96,16 @@ let sendGetstartedTemplate = () => {
                 title: "MENU CHÍNH",
                 payload: "MAIN_MENU",
               },
+              {
+                type: "postback",
+                title: "CÂU HỎI THƯỜNG GẶP",
+                payload: "QUESTION_INFO",
+              },
 
               {
                 type: "postback",
                 title: "HƯỚNG DẪN SỬ DỤNG",
                 payload: "GUILD_TO_USE",
-              },
-              {
-                type: "postback",
-                title: "CÂU HỎI THƯỜNG GẶP",
-                payload: "QUESTION_INFO",
               },
             ],
           },
