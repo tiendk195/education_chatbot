@@ -4,7 +4,7 @@ import { response } from "express";
 import request from "request";
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-
+const IMAGE_GET_STARTED = "https://t.ly/nG7iq";
 let getUserName = (sender_psid) => {
   // Construct the message body
   return new Promise((resolve, reject) => {
@@ -60,15 +60,60 @@ let handleGetstarted = (sender_psid) => {
   return new Promise(async (resolve, reject) => {
     try {
       let username = await getUserName(sender_psid);
-      let response = {
-        text: `Chào mừng ${username} đến với Chat Bot UNETI!Bạn đang cần tìm kiếm thông tin gì?`,
+      let response1 = {
+        text: `Chào mừng ${username} đến với Chat Bot UNETI! Bạn đang cần tìm kiếm thông tin gì?`,
       };
-      await callSendAPI(sender_psid, response);
+      let response2 = sendGetstartedTemplate();
+
+      //send text message
+
+      await callSendAPI(sender_psid, response1);
+
+      //send generic message template
+      await callSendAPI(sender_psid, response2);
+
       resolve("done");
     } catch (error) {
       reject(error);
     }
   });
+};
+
+let sendGetstartedTemplate = () => {
+  let response = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "Xin chào bạn đến với Chat Bot UNETI !",
+            subtitle: "Bạn đang tìm kiếm thông tin gì?",
+            image_url: IMAGE_GET_STARTED,
+            buttons: [
+              {
+                type: "postback",
+                title: "MENU CHÍNH",
+                payload: "MAIN_MENU",
+              },
+              {
+                type: "postback",
+                title: "TRA CỨU THÔNG TIN",
+                payload: "SEARCH_INFO",
+              },
+
+              {
+                type: "postback",
+                title: "HƯỚNG DẪN SỬ DỤNG",
+                payload: "GUILD_TO_USE",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  };
+  return response;
 };
 
 module.exports = {
