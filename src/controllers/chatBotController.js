@@ -120,6 +120,8 @@ function handlePostback(sender_psid, received_postback) {
     response = { text: "Thanks!" };
   } else if (payload === "no") {
     response = { text: "Oops, try sending another image." };
+  } else if (payload === "GET_STARTED") {
+    response = { text: "Chào mừng bạn đến với Chat Bot UNETI." };
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
@@ -167,6 +169,7 @@ let getFacebookUserProfile = async (req, res) => {
       json: request_body,
     },
     (err, res, body) => {
+      console.log(body);
       if (!err) {
         console.log("Thiết lập profile thành công !");
       } else {
