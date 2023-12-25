@@ -68,7 +68,8 @@ function handleMessage(sender_psid, received_message) {
     console.log("----------------------");
 
     response = {
-      text: `You sent the message : "${received_message.text}". Now sent me a image!`,
+      // text: `You sent the message : "${received_message.text}". Now sent me a image!`,
+      text: `Xin chào bạn đến với Góc Thông Tin UNETI, bạn đang cần tìm kiếm thông tin gì?`,
     };
   }
   callSendAPI(sender_psid, response);
