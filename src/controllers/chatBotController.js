@@ -154,8 +154,8 @@ function callSendAPI(sender_psid, response) {
 let getFacebookUserProfile = (req, res) => {
   // Construct the message body
   let request_body = {
-    get_started: "GET_STARTED",
-    whitelisted_domains: "https://uneti-chatbot.onrender.com",
+    get_started: { payload: "GET_STARTED" },
+    whitelisted_domains: ["https://uneti-chatbot.onrender.com"],
   };
 
   // Send the HTTP request to the Messenger Platform
@@ -168,7 +168,7 @@ let getFacebookUserProfile = (req, res) => {
     },
     (err, res, body) => {
       if (!err) {
-        console.log("message sent!");
+        console.log("Thiết lập profile thành công !");
       } else {
         console.error("Unable to send message:" + err);
       }

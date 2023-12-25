@@ -9,7 +9,7 @@ let initWebRoutes = (app) => {
   //   router.get("/", homepageController.getHomepage);
   router.get("/webhook", chatBotController.getWebhook);
   router.post("/webhook", chatBotController.postWebhook);
-  router.get("/profile", chatBotController.getFacebookUserProfile);
+  router.post("/profile", chatBotController.getFacebookUserProfile);
   //   router.post(
   //     "/set-up-user-fb-profile",
   //     homepageController.setUpUserFacebookProfile
