@@ -98,8 +98,8 @@ let sendGetstartedTemplate = () => {
               },
               {
                 type: "postback",
-                title: "TRA CỨU THÔNG TIN",
-                payload: "SEARCH_INFO",
+                title: "CÂU HỎI THƯỜNG GẶP",
+                payload: "QUESTION_INFO",
               },
 
               {
