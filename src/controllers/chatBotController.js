@@ -128,6 +128,61 @@ async function handlePostback(sender_psid, received_postback) {
       await chatBotService.handleGetstarted(sender_psid);
 
       break;
+    case "QUEST1":
+      response = {
+        text: "Trường Đại học Kinh tế – Kỹ thuật Công nghiệp có 4 địa điểm đào tạo, trong đó cơ sở Nam Định có 2 địa điểm tại 353 Trần Hưng Đạo, TP Nam Định và phường Mỹ Xá, TP Nam Định. Tại cơ sở Hà Nội có 2 địa điểm tại 454 Minh Khai, quận Hai Bà Trưng và 218 Lĩnh Nam, phường Lĩnh Nam, quận Hoàng Mai, TP Hà Nội.",
+      };
+      break;
+
+    case "QUEST2":
+      response = {
+        text: `Trong những năm qua trường luôn tích cực đẩy mạnh phong trào thi đua rèn luyện học tập,đã đạt được một số thành tựu tiêu biểu như : 
+      01 Huân chương Độc lập Hạng Nhất (2011) 
+      01 Huân chương Độc lập Hạng Nhất (2005) 
+      01 Huân chương Lao động hạng Ba cho Công đoàn (2005)`,
+      };
+      break;
+    // Trong function handlePostback
+    case "QUEST3":
+      response = {
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "button",
+            text: `Trường gồm  24 Ngành học bao gồm những ngày nổi trội những năm gần đây với đa dạng tổ hợp xét tuyển như A00,A01,B00,C01,D01...`,
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://uneti.edu.vn/thong-tin-co-ban-ve-tuyen-sinh-nam-2023-cua-truong-dai-hoc-kinh-te-ky-thuat-cong-nghiep/",
+                title: "Xem Chuyên Ngành",
+                webview_height_ratio: "full", // Thay đổi thành "compact" hoặc "tall" nếu bạn không muốn webview đầy đủ chiều cao
+              },
+            ],
+          },
+        },
+      };
+      break;
+    // Cuối cùng đừng quên gửi phản hồi:
+    // callSendAPI(sender_psid, response);
+    case "QUEST4":
+      response = {
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "button",
+            text: `Xem thêm chi tiết tại đây`,
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://uneti.edu.vn/tb-hb-nb-2023/",
+                title: "Xem Chuyên Ngành",
+                webview_height_ratio: "full", // Thay đổi thành "compact" hoặc "tall" nếu bạn không muốn webview đầy đủ chiều cao
+              },
+            ],
+          },
+        },
+      };
+      break;
     default:
       response = { text: `Tôi không hiểu yêu cầu ${payload} của bạn !` };
       break;
@@ -149,7 +204,7 @@ function callSendAPI(sender_psid, response) {
   // Send the HTTP request to the Messenger Platform
   request(
     {
-      uri: "https://graph.facebook.com/v6.0/me/messages",
+      uri: "https://graph.facebook.com/v18.0/me/messages",
       qs: { access_token: PAGE_ACCESS_TOKEN },
       method: "POST",
       json: request_body,
@@ -209,6 +264,30 @@ let setuppersistentmenu = async (req, res) => {
             title: "Kiểm Tra Thông Tin",
             url: "https://sinhvien.uneti.edu.vn/tra-cuu-thong-tin.html/",
             webview_height_ratio: "full",
+          },
+          {
+            type: "postback",
+            title:
+              "Trường đại học đại học kinh tế kỹ thuật công nghiệp UNETI có mấy cơ sở?",
+            payload: "QUEST1",
+          },
+          {
+            type: "postback",
+            title:
+              "Thành tựu mà Trường đại học đại học kinh tế kỹ thuật đạt đc trong các năm qua?",
+            payload: "QUEST2",
+          },
+          {
+            type: "postback",
+            title:
+              "Trường đại học đại học kinh tế kỹ thuật CN có bao nhiêu chuyên ngành học?",
+            payload: "QUEST3",
+          },
+          {
+            type: "postback",
+            title:
+              "Tôi có thể tìm hiểu và đăng ký đơn xét duyệt học bổng ở đâu?",
+            payload: "QUEST4",
           },
           {
             type: "postback",
