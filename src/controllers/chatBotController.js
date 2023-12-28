@@ -175,7 +175,7 @@ async function handlePostback(sender_psid, received_postback) {
               {
                 type: "web_url",
                 url: "https://uneti.edu.vn/tb-hb-nb-2023/",
-                title: "Xem Chuyên Ngành",
+                title: "Xem Chuyên Ngànhh",
                 webview_height_ratio: "full", // Thay đổi thành "compact" hoặc "tall" nếu bạn không muốn webview đầy đủ chiều cao
               },
             ],
@@ -245,83 +245,83 @@ let getFacebookUserProfile = async (req, res) => {
   return res.send("Thiết lập profile thành công !");
 };
 
-// let setuppersistentmenu = async (req, res) => {
-//   // Construct the message body
-//   let request_body = {
-//     persistent_menu: [
-//       {
-//         locale: "default",
-//         composer_input_disabled: false,
-//         call_to_actions: [
-//           {
-//             type: "web_url",
-//             title: "Trang Chủ Trường",
-//             url: "https://uneti.edu.vn/",
-//             webview_height_ratio: "full",
-//           },
-//           {
-//             type: "web_url",
-//             title: "Kiểm Tra Thông Tin",
-//             url: "https://sinhvien.uneti.edu.vn/tra-cuu-thong-tin.html/",
-//             webview_height_ratio: "full",
-//           },
-//           {
-//             type: "postback",
-//             title:
-//               "Trường đại học đại học kinh tế kỹ thuật công nghiệp UNETI có mấy cơ sở?",
-//             payload: "QUEST1",
-//           },
-//           {
-//             type: "postback",
-//             title:
-//               "Thành tựu mà Trường đại học đại học kinh tế kỹ thuật đạt đc trong các năm qua?",
-//             payload: "QUEST2",
-//           },
-//           {
-//             type: "postback",
-//             title:
-//               "Trường đại học đại học kinh tế kỹ thuật CN có bao nhiêu chuyên ngành học?",
-//             payload: "QUEST3",
-//           },
-//           {
-//             type: "postback",
-//             title:
-//               "Tôi có thể tìm hiểu và đăng ký đơn xét duyệt học bổng ở đâu?",
-//             payload: "QUEST4",
-//           },
-//           {
-//             type: "postback",
-//             title: "Khởi động lại chat bot",
-//             payload: "RESET_CHATBOT",
-//           },
-//         ],
-//       },
-//     ],
-//   };
+let setuppersistentmenu = async (req, res) => {
+  // Construct the message body
+  let request_body = {
+    persistent_menu: [
+      {
+        locale: "default",
+        composer_input_disabled: false,
+        call_to_actions: [
+          {
+            type: "web_url",
+            title: "Trang Chủ Trường",
+            url: "https://uneti.edu.vn/",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "web_url",
+            title: "Kiểm Tra Thông Tin",
+            url: "https://sinhvien.uneti.edu.vn/tra-cuu-thong-tin.html/",
+            webview_height_ratio: "full",
+          },
+          {
+            type: "postback",
+            title:
+              "Trường đại học đại học kinh tế kỹ thuật công nghiệp UNETI có mấy cơ sở?",
+            payload: "QUEST1",
+          },
+          {
+            type: "postback",
+            title:
+              "Thành tựu mà Trường đại học đại học kinh tế kỹ thuật đạt đc trong các năm qua?",
+            payload: "QUEST2",
+          },
+          {
+            type: "postback",
+            title:
+              "Trường đại học đại học kinh tế kỹ thuật CN có bao nhiêu chuyên ngành học?",
+            payload: "QUEST3",
+          },
+          {
+            type: "postback",
+            title:
+              "Tôi có thể tìm hiểu và đăng ký đơn xét duyệt học bổng ở đâu?",
+            payload: "QUEST4",
+          },
+          {
+            type: "postback",
+            title: "Khởi động lại chat bot",
+            payload: "RESET_CHATBOT",
+          },
+        ],
+      },
+    ],
+  };
 
-//   // Send the HTTP request to the Messenger Platform
-//   await request(
-//     {
-//       uri: `https://graph.facebook.com/v18.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
-//       qs: { access_token: PAGE_ACCESS_TOKEN },
-//       method: "POST",
-//       json: request_body,
-//     },
-//     (err, res, body) => {
-//       console.log(body);
-//       if (!err) {
-//         console.log("Thiết lập persistion thành công !");
-//       } else {
-//         console.error("Unable to send message:" + err);
-//       }
-//     }
-//   );
-//   return res.send("Thiết lập persistion thành công !");
-// };
+  // Send the HTTP request to the Messenger Platform
+  await request(
+    {
+      uri: `https://graph.facebook.com/v18.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}`,
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      console.log(body);
+      if (!err) {
+        console.log("Thiết lập persistion thành công !");
+      } else {
+        console.error("Unable to send message:" + err);
+      }
+    }
+  );
+  return res.send("Thiết lập persistion thành công !");
+};
 module.exports = {
   getHomepage: getHomepage,
   getWebhook: getWebhook,
   postWebhook: postWebhook,
   getFacebookUserProfile: getFacebookUserProfile,
-  // setuppersistentmenu: setuppersistentmenu,
+  setuppersistentmenu: setuppersistentmenu,
 };

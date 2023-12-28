@@ -10,7 +10,7 @@ let initWebRoutes = (app) => {
   router.get("/webhook", chatBotController.getWebhook);
   router.post("/webhook", chatBotController.postWebhook);
   router.post("/profile", chatBotController.getFacebookUserProfile);
-  // router.post("/setup-persistent-menu", chatBotController.setuppersistentmenu);
+  router.post("/setup-persistent-menu", chatBotController.setuppersistentmenu);
 
   //   router.post(
   //     "/set-up-user-fb-profile",
